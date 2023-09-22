@@ -39,174 +39,174 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         centerTitle: true,
         title: Text("News",style: GoogleFonts.poppins(fontSize: 24,fontWeight: FontWeight.w700),),
-      actions: [
-        PopupMenuButton<FilterList>(
-          onSelected: (FilterList result){
-            if(FilterList.bbcNews.name==result.name)
-              {
-                name="bbc-news";
-              }
-            if(FilterList.aryNews.name==result.name)
-            {
-              name="ary-news";
-            }
-            if(FilterList.alJazeera.name==result.name)
-            {
-              name="al-jazeera-english";
-            }
-            if(FilterList.cnn.name==result.name)
-            {
-              name="cnn";
-            }
-            if(FilterList.independent.name==result.name)
-            {
-              name="independent";
-            }
-            if(FilterList.reuters.name==result.name)
-            {
-              name="reuters";
-            }
+        actions: [
+          PopupMenuButton<FilterList>(
+              onSelected: (FilterList result){
+                if(FilterList.bbcNews.name==result.name)
+                {
+                  name="bbc-news";
+                }
+                if(FilterList.aryNews.name==result.name)
+                {
+                  name="ary-news";
+                }
+                if(FilterList.alJazeera.name==result.name)
+                {
+                  name="al-jazeera-english";
+                }
+                if(FilterList.cnn.name==result.name)
+                {
+                  name="cnn";
+                }
+                if(FilterList.independent.name==result.name)
+                {
+                  name="independent";
+                }
+                if(FilterList.reuters.name==result.name)
+                {
+                  name="reuters";
+                }
 
-       setState(() {
-              selectedMenu=result;
-            });
-
-
-          },
-          icon: Icon(Icons.more_vert,color: Colors.black,),
-            initialValue: selectedMenu,
-            itemBuilder: (context)=> <PopupMenuEntry<FilterList>>[
-          PopupMenuItem<FilterList>(
-              value: FilterList.bbcNews,
-              child: Text("BBC News",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
-          ),
-              PopupMenuItem<FilterList>(
-                  value: FilterList.aryNews,
-                  child: Text("Ary News",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
-              ),
-              PopupMenuItem<FilterList>(
-                  value: FilterList.alJazeera,
-                  child: Text("Al Jazeera",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
-              ),
-              PopupMenuItem<FilterList>(
-                  value: FilterList.cnn,
-                  child: Text("CNN",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
-              ),
-              PopupMenuItem<FilterList>(
-                  value: FilterList.independent,
-                  child: Text("Independent",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
-              ),
-              PopupMenuItem<FilterList>(
-                  value: FilterList.reuters,
-                  child: Text("Reuters",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
-              ),
+                setState(() {
+                  selectedMenu=result;
+                });
 
 
-        ])
+              },
+              icon: Icon(Icons.more_vert,color: Colors.black,),
+              initialValue: selectedMenu,
+              itemBuilder: (context)=> <PopupMenuEntry<FilterList>>[
+                PopupMenuItem<FilterList>(
+                    value: FilterList.bbcNews,
+                    child: Text("BBC News",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
+                ),
+                PopupMenuItem<FilterList>(
+                    value: FilterList.aryNews,
+                    child: Text("Ary News",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
+                ),
+                PopupMenuItem<FilterList>(
+                    value: FilterList.alJazeera,
+                    child: Text("Al Jazeera",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
+                ),
+                PopupMenuItem<FilterList>(
+                    value: FilterList.cnn,
+                    child: Text("CNN",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
+                ),
+                PopupMenuItem<FilterList>(
+                    value: FilterList.independent,
+                    child: Text("Independent",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
+                ),
+                PopupMenuItem<FilterList>(
+                    value: FilterList.reuters,
+                    child: Text("Reuters",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
+                ),
 
-      ],
+
+              ])
+
+        ],
       ),
       body: ListView(
         children: [
           SizedBox(
             height: height*0.55,
-        width: width,
+            width: width,
             child: FutureBuilder<NewsChannelHeadlinesModel>(
                 future: newsViewModel.fetchNewsChannelsHeadlineApi(name),
                 builder: (BuildContext context, snapshot){
                   if(snapshot.connectionState==ConnectionState.waiting)
-                    {
-                      return Center(
-                        child: SpinKitCircle(
-                          color: Colors.blue,
-                          size: 40.0,
-                        ),
-                      );
+                  {
+                    return Center(
+                      child: SpinKitCircle(
+                        color: Colors.blue,
+                        size: 40.0,
+                      ),
+                    );
 
-                    }
+                  }
                   else
-                    {
-                 return ListView.builder(
-                   itemCount: snapshot.data!.articles!.length,
-                     scrollDirection: Axis.horizontal,
-                     itemBuilder: (context,index){
-                     DateTime date = DateTime.parse(snapshot.data!.articles![index].publishedAt.toString());
-                       return SizedBox(
-                         child: Stack(
-                           alignment: Alignment.center,
-                           children: [
-                             Container(
-                                height: height*0.6,
-                               width: width*0.9,
-                               padding: EdgeInsets.symmetric(
-                                  horizontal: height * 0.02,
+                  {
+                    return ListView.builder(
+                        itemCount: snapshot.data!.articles!.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context,index){
+                          DateTime date = DateTime.parse(snapshot.data!.articles![index].publishedAt.toString());
+                          return SizedBox(
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Container(
+                                  height: height*0.6,
+                                  width: width*0.9,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: height * 0.02,
 
-                                ),
-                               child: ClipRRect(
-                                 borderRadius: BorderRadius.circular(15),
-                                 child: CachedNetworkImage(
-                                   imageUrl: snapshot.data!.articles![index].urlToImage.toString(),
-                                   fit: BoxFit.cover,
-                                   placeholder: (context, url) => Container(child: spinKit2,),
-                                   errorWidget: (context, url, error) => Icon(Icons.error_outline,color: Colors.red,),
-                                 ),
-                               ),
-                             ),
-                             Positioned(
-                               bottom: 20,
-                               child: Card(
-                                 elevation: 5,
-                                 color: Colors.white,
-                                 shape: RoundedRectangleBorder(
-                                   borderRadius: BorderRadius.circular(12),
-                                 ),
-                                 child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: width * 0.02,
-                                      vertical: height * 0.01,
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(15),
+                                    child: CachedNetworkImage(
+                                      imageUrl: snapshot.data!.articles![index].urlToImage.toString(),
+                                      fit: BoxFit.cover,
+                                      placeholder: (context, url) => Container(child: spinKit2,),
+                                      errorWidget: (context, url, error) => Icon(Icons.error_outline,color: Colors.red,),
                                     ),
-                                   alignment: Alignment.bottomCenter,
-                                    height: height*0.22,
-                                   child: Column(
-                                     mainAxisAlignment: MainAxisAlignment.center,
-                                     crossAxisAlignment: CrossAxisAlignment.center,
-                                     children: [
-                                       Container(
-                                         width: width*0.7,
-                                         child:  Text(snapshot.data!.articles![index].title.toString(),
-                                           maxLines: 2,
-                                           overflow: TextOverflow.ellipsis,
-                                           style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w600),),
-                                       ),
-                                       Spacer(),
-                                       Container(
-                                         width: width*0.75,
-                                         child: Row(
-                                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                           children: [
-                                             Text(snapshot.data!.articles![index].source!.name.toString(),
-                                               maxLines: 1,
-                                               style: GoogleFonts.poppins(fontSize: 14,fontWeight: FontWeight.w500,color: Colors.grey.shade700),),
-                                             Spacer(),
-                                             Text(format.format(date),
-                                               style: GoogleFonts.poppins(fontSize: 14,fontWeight: FontWeight.w500,color: Colors.grey.shade700),),
-                                             SizedBox(width: width*0.02,),
-                                           ],
-                                         ),
-                                       )
+                                  ),
+                                ),
+                                Positioned(
+                                  bottom: 20,
+                                  child: Card(
+                                    elevation: 5,
+                                    color: Colors.white,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: width * 0.02,
+                                        vertical: height * 0.01,
+                                      ),
+                                      alignment: Alignment.bottomCenter,
+                                      height: height*0.22,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: width*0.7,
+                                            child:  Text(snapshot.data!.articles![index].title.toString(),
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w600),),
+                                          ),
+                                          Spacer(),
+                                          Container(
+                                            width: width*0.75,
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text(snapshot.data!.articles![index].source!.name.toString(),
+                                                  maxLines: 1,
+                                                  style: GoogleFonts.poppins(fontSize: 14,fontWeight: FontWeight.w500,color: Colors.grey.shade700),),
+                                                Spacer(),
+                                                Text(format.format(date),
+                                                  style: GoogleFonts.poppins(fontSize: 14,fontWeight: FontWeight.w500,color: Colors.grey.shade700),),
+                                                SizedBox(width: width*0.02,),
+                                              ],
+                                            ),
+                                          )
 
-                                     ],
-                                   ),
-                                 ),
-                               ),
-                             )
-                           ],
-                         ),
-                       );
-                     }
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        }
 
-                 );
-                    }
+                    );
+                  }
                 }),
           ),
           Padding(
@@ -227,8 +227,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   else
                   {
                     return ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
                         itemCount: snapshot.data!.articles!.length,
-                       shrinkWrap: true,
+                        shrinkWrap: true,
                         itemBuilder: (context,index){
                           DateTime date = DateTime.parse(snapshot.data!.articles![index].publishedAt.toString());
                           return Padding(

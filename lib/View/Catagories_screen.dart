@@ -50,6 +50,7 @@ appBar: AppBar(),
             SizedBox(
               height: height*0.05,
               child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: categoriesList.length,
                   itemBuilder: (context,index){
@@ -77,7 +78,11 @@ appBar: AppBar(),
                     ),
                   ),
                 );
-                  }),
+
+
+                  }
+
+                  ),
             ),
             SizedBox(
               height: height*0.02,
@@ -119,7 +124,8 @@ appBar: AppBar(),
                                       errorWidget: (context, url, error) => Icon(Icons.error_outline,color: Colors.red,),
                                     ),
                                   ),
-                                  Expanded(child: Container(
+                                  Expanded(
+                                      child: Container(
                                     height: height*0.18,
                                     padding: EdgeInsets.only(
                                       left:15,
