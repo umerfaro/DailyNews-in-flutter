@@ -1,16 +1,14 @@
-# newsapp
+# Newsapp
 
 A new Flutter project.
 
-## Getting Started
+## Home Page
 
-This project is a starting point for a Flutter application.
+![WhatsApp Image 2023-09-16 at 4 31 56 PM](https://github.com/umerfaro/DailyNews-in-flutter/assets/90244353/0f172afe-508c-428e-bbf0-db15acfe5421)
 
-A few resources to get you started if this is your first Flutter project:
+## Different News Fields
+![WhatsApp Image 2023-09-16 at 4 31 55 PM](https://github.com/umerfaro/DailyNews-in-flutter/assets/90244353/5f072be2-e373-4822-b574-a805186710ce)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Categories
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![WhatsApp Image 2023-09-16 at 4 31 55 PM (1)](https://github.com/umerfaro/DailyNews-in-flutter/assets/90244353/61cf42e1-6239-4d49-b9db-77a81715cb3e)
