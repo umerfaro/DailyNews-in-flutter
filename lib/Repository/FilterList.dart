@@ -1,7 +1,7 @@
 enum FilterList {
   bbcNews,
   aryNews,
-  independent,
+  argaam,
   reuters,
   cnn,
   alJazeera,

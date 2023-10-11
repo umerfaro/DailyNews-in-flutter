@@ -59,9 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 {
                   name="cnn";
                 }
-                if(FilterList.independent.name==result.name)
+                if(FilterList.argaam.name==result.name)
                 {
-                  name="independent";
+                  name="argaam";
                 }
                 if(FilterList.reuters.name==result.name)
                 {
@@ -94,8 +94,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Text("CNN",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
                 ),
                 PopupMenuItem<FilterList>(
-                    value: FilterList.independent,
-                    child: Text("Independent",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
+                    value: FilterList.argaam,
+                    child: Text("Argaam",style: GoogleFonts.poppins(fontSize: 16,fontWeight: FontWeight.w500),)
                 ),
                 PopupMenuItem<FilterList>(
                     value: FilterList.reuters,
